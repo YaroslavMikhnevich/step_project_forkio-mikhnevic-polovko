@@ -1,0 +1,309 @@
+@import './abstracts/mixins';
+@import './abstracts/reset';
+@import './abstracts/variables';
+.lp-header {
+    /*  background: url('../img/header-background.png') center bottom 70px / cover no-repeat border-box; */
+    background: url('../img/header-background.png');
+    background-size: cover;
+    background-position: center;
+    background-clip: border-box;
+    padding-bottom: 70px;
+    position: relative;
+
+    .lp-header-container {
+        display: grid;
+        grid-template-areas: "logo nav btn";
+        grid-template-columns: fit-content(100px) 1fr fit-content(100px);
+        align-items: center;
+        justify-content: space-between;
+        padding: 30px 90px;
+        
+
+
+        .lp-logo {
+            grid-area: logo;
+            display: flex;
+            align-items: center;
+
+            &:hover img {
+               content: url(../../../dist/img/logo-hover.png);
+            }
+            &:hover span {
+                color: #fff;
+            }
+
+            span {
+                color: $primary-color;
+                margin-left: 17px;
+                text-transform: uppercase;
+                font-size: 1.7rem;
+                line-height: 1.15rem;
+            }
+        }
+
+        .lp-nav {
+            grid-area: nav;
+        }
+
+        .lp-nav-menu {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 5%;
+            margin-right: 48px;
+
+
+            &__item {
+                text-decoration: none;
+                color: $primary-color;
+                font-size: 1.2rem;
+                line-height: 1.2rem;
+            }
+
+            &__item:hover {
+                color: #fff;
+            }
+        }
+
+
+        .lp-buy-now-btn {
+            grid-area: btn;
+            width: 145px;
+        }
+
+        .mobile-menu-icon {
+            display: none;
+        }
+
+        @include for-tablet-only {
+            display: grid;
+            grid-template-areas: "logo . btn""nav nav nav";
+            background-color: #27262A;
+            padding: 30px 20px;
+
+            .lp-nav-menu {
+                margin: 23px auto 0;
+                justify-content: space-around;
+                gap: 0px;
+            }
+        }
+
+        @include for-phone-only {
+            display: grid;
+            grid-template-areas: 'logo btn nav';
+            grid-template-columns: 30% 30% 30%;
+            background-color: #27262A;
+            gap: 0px;
+            justify-content: space-between;
+            padding: 30px 16px;
+
+            .lp-logo span {
+                display: none;
+            }
+
+            .lp-buy-now-btn {
+                width: 119px;
+            }
+
+            .lp-nav {
+                position: relative
+            }
+
+            .lp-nav-menu {
+                display: none;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0px;
+                position: absolute;
+                background-color: #333333;
+                right: -60px;
+                top: 51px;
+                width: 95vw;
+
+                & li {
+                    border-bottom: 1px solid #3B3B3B;
+                    width: 100%;
+                    padding: 29px 0 21px 35px;
+                }
+
+                &__item {   
+                    color: #fff;
+                    font-size: 1.85rem;
+                    line-height: 1.85rem;
+                }
+
+                &__item:active,
+                &__item:focus {
+                    color: $primary-color;
+                    position: relative;
+                }
+
+                &__item:active::before,
+                &__item:focus::before {
+                    content: '';
+                    width: 8px;
+                    height: 53px;
+                    background-color: $primary-color;
+                    position: absolute;
+                    left: -35px;
+                    top: -10px;
+
+                }
+            }
+
+            .active {
+                display: flex;
+            }
+
+            .mobile-menu-icon {
+                grid-area: nav;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-end;
+
+                &__item {
+                    padding-top: 6px;
+                }
+            }
+
+            .close-icon {
+                grid-area: nav;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-end;
+
+                .mobile-menu-icon__item  {
+                    display: none;
+                    padding-top: 6px;
+                }
+            }
+
+            .close-icon::before {
+                content: '';
+                height: 2px;
+                width: 25px;
+                background-color: #fff;
+                transform: rotate(45deg);
+                position: absolute;
+            }
+
+            .close-icon::after {
+                content: '';
+                height: 2px;
+                width: 25px;
+                background-color: #fff;
+                transform: rotate(-45deg);
+                position: absolute;
+            }
+        }
+    }
+
+
+    .lp-app-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 90px auto 459px;
+
+        .lp-app-title {
+            color: #fff;
+            font-weight: 700;
+            font-size: 5.85rem;
+            line-height: 5.85rem;
+        }
+
+        .lp-app-description {
+            color: $primary-color;
+            font-weight: 400;
+            font-size: 2.15rem;
+            line-height: 2.15rem;
+            padding: 19px 0 19px;
+        }
+
+        .lp-app-compatibility-info {
+            color: $paragraph-color;
+            font-weight: 400;
+            font-size: 1.2rem;
+            line-height: 1.2rem;
+
+        }
+
+        @include for-tablet-only {
+
+            .lp-app-title {
+                font-size: 5.15rem;
+                line-height: 5.15rem;
+            }
+
+            .lp-app-description {
+                text-align: center;
+                font-size: 1.7rem;
+                line-height: 1.7rem;
+            }
+
+            .lp-app-compatibility-info {
+                font-size: 1.2rem;
+                line-height: 1.2rem;
+
+            }
+        }
+
+        @include for-phone-only {
+            .lp-app-title {
+                text-align: center;
+                font-size: 3.4rem;
+                line-height: 3.4rem;
+            }
+
+            .lp-app-description {
+                text-align: center;
+                font-size: 1.28rem;
+                line-height: 1.7rem;
+            }
+
+            .lp-app-compatibility-info {
+                font-size: 1rem;
+                line-height: 1rem;
+
+            }
+        }
+    }
+
+
+    .lp-download-for-free-btn__wrapper {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -63px;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+
+        .lp-download-for-free-btn {
+            height: 60px;
+            width: 390px;
+            font-size: 1.5rem;
+            line-height: 1.5rem;
+        }
+
+        .download-for-free-content {
+            color: $paragraph-color;
+            font-weight: 400;
+            font-size: 1rem;
+            line-height: 1rem;
+            padding-top: 20px;
+        }
+   
+    @include for-phone-only {
+        .lp-download-for-free-btn {
+            height: 45px;
+            width: 290px;
+            font-size: 1.28rem;
+            line-height: 1.28rem;
+       }
+
+    }
+}
+}

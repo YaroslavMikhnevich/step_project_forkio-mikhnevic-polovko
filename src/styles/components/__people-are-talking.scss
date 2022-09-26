@@ -1,0 +1,126 @@
+@import './abstracts/mixins';
+@import './abstracts/reset';
+@import './abstracts/variables';
+.lp-people-talking-about-section {
+    background: url('../img/section-people-talking-background.png');
+    background-size: cover;
+    background-position: center;
+    background-clip: border-box;
+    margin: 0px 0 60px;
+    padding: 108px 0 50px;
+
+    .lp-section-title {
+        font-weight: 700;
+        font-size: 3.4rem;
+        line-height: 3.4rem;
+        color: #fff;
+        @include for-tablet-only {
+                
+                font-size: 2.7rem;
+                line-height: 2.7rem;
+        }
+        @include for-phone-only { 
+            text-align: center;
+                font-size: 2.57rem;
+                line-height: 2.57rem;
+        }
+    }
+
+    .lp-content {
+        @include flex-center;
+    }
+
+    .lp-section-content {
+        display: grid;
+        grid-template-areas: "smashing codrops w-img"
+                            "pixel-buddha creative-bloq tnw";
+        grid-template-columns: repeat(3, 1fr);
+        gap: 112px;
+        margin: 83px 0 115px;
+
+
+        &__item {
+            @include flex-center;
+        }
+        
+        &__item p {
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.15rem;
+            line-height: 1.15rem;
+            text-align: center;
+            padding-top: 30px;
+        }
+
+        &:nth-child(1) {
+            grid-area: smashing;
+        }
+
+        &:nth-child(2) {
+            grid-area: codrops;
+        }
+
+        &:nth-child(3) {
+            grid-area: w-img;
+        }
+
+        &:nth-child(4) {
+            grid-area: pixel-buddha;
+        }
+
+        &:nth-child(5) {
+            grid-area: creative-bloq;
+        }
+
+        &:nth-child(6) {
+            grid-area: tnw;
+        }
+
+        @include for-tablet-only {
+            display: grid;
+            grid-template-areas: "smashing codrops"
+                                "w-img pixel-buddha"
+                                "creative-bloq tnw";
+            grid-template-columns: 40% 40%;
+            justify-content: center;
+            align-items: center;
+            gap: 70px;
+            margin: 83px 0 115px;
+        
+        }
+    }
+
+    .lp-section-bottom-content {
+        color: #A291A5;
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        margin: 0 auto;
+        text-align: center;
+        max-width: 890px;
+        padding: 0 18px 50px;
+        position: relative;
+
+        &::after {
+            content: '';
+            width: 85%;
+            height: 2px;
+            position: absolute;
+            background-color: #645766;
+            left: 7%;
+            top: 80%;
+            display: inline-block;
+        }
+    }
+
+        @include for-phone-only {
+
+            .lp-section-content {
+                @include flex-center;
+                gap: 45px;
+                margin: 53px 0 37px;
+            }
+
+        }
+
+}

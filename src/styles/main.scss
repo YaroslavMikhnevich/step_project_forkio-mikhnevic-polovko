@@ -1,0 +1,38 @@
+@import './abstracts/mixins';
+@import './abstracts/reset';
+@import './abstracts/variables';
+@import './components/pricing';
+@import './components/evolusion-editor';
+@import './components/benefits-section';
+@import './components/_header';
+@import './components/_people-are-talking';
+@import './components/btn';
+
+
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    min-width: 320px;
+    font-size: 14px;
+    line-height: 14px;
+
+    .container {
+        width: 100%;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+.lp-content {
+    min-width: $min-content-width;
+    max-width: $max-content-width;
+    margin: 0 auto;
+    padding: 0 10px;
+}
